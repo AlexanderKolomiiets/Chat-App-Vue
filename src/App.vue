@@ -62,7 +62,7 @@ export default {
     });
 
     const Login = () => {
-      if (inputUsername.value) {
+      if (inputUsername.value.trim()) {
         state.username = inputUsername.value;
         inputUsername.value = "";
       }
@@ -75,7 +75,7 @@ export default {
     const SendMessage = () => {
       const messagesRef = db.database().ref("messages");
 
-      if (!inputMessage.value) {
+      if (!inputMessage.value.trim()) {
         return;
       }
 
@@ -131,7 +131,7 @@ export default {
 }
 
 body {
-  background-color: #ea526f;
+  background-color: #4f86f7;
 }
 
 .view {
@@ -150,13 +150,13 @@ body {
 
       .form-inner {
         display: block;
+        color: #777;
         background-color: #fff;
-        padding: 50px 15px;
+        padding: 50px 25px;
         border-radius: 16px;
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 
         h1 {
-          color: #aaa;
           font-size: 28px;
           margin-bottom: 30px;
         }
@@ -164,7 +164,6 @@ body {
         label {
           display: block;
           margin-bottom: 5px;
-          color: #aaa;
           font-size: 16px;
           transition: 0.4s;
         }
@@ -204,7 +203,7 @@ body {
           display: block;
           width: 100%;
           padding: 10px 15px;
-          background-color: #ea526f;
+          background-color: #4f86f7;
           border-radius: 8px;
 
           color: #fff;
@@ -214,7 +213,7 @@ body {
 
         &:focus-within {
           label {
-            color: #ea526f;
+            color: #4f86f7;
           }
 
           input[type="text"] {
@@ -232,12 +231,12 @@ body {
 
   &.chat {
     flex-direction: column;
+    padding: 0 30px 30px;
 
     header {
       position: relative;
-      display: block;
-      width: 100%;
-      padding: 50px 30px 10px;
+      padding: 50px 20px 10px;
+      color: #fff;
 
       .logout {
         position: absolute;
@@ -250,19 +249,13 @@ body {
 
         color: #fff;
         font-size: 18px;
-        margin-bottom: 10px;
-        text-align: right;
-      }
-
-      h1 {
-        color: #fff;
       }
     }
 
     .chat-box {
-      border-radius: 24px 24px 0px 0px;
+      border-radius: 16px 16px 0px 0px;
       background-color: #fff;
-      box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
+      box-shadow: 0px 0px 20px rgba(100, 100, 100, 0.4);
       flex: 1 1 100%;
       padding: 30px;
 
@@ -272,18 +265,17 @@ body {
 
         .message-inner {
           .username {
-            color: #888;
+            color: #777;
             font-size: 16px;
             margin-bottom: 5px;
-            padding-left: 15px;
-            padding-right: 15px;
+            padding: 0 15px;
           }
 
           .content {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #f3f3f3;
-            border-radius: 999px;
+            background-color: #f3f3ff;
+            border-radius: 20px;
 
             color: #333;
             font-size: 18px;
@@ -294,8 +286,6 @@ body {
 
         &.current-user {
           margin-top: 30px;
-          justify-content: flex-end;
-          text-align: right;
 
           .message-inner {
             max-width: 75%;
@@ -303,7 +293,7 @@ body {
             .content {
               color: #fff;
               font-weight: 600;
-              background-color: #ea526f;
+              background-color: #4f86f7;
             }
           }
         }
@@ -315,14 +305,13 @@ body {
       bottom: 0px;
       background-color: #fff;
       padding: 30px;
+      border-radius: 0px 0px 16px 16px;
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
 
       form {
         display: flex;
 
         input[type="text"] {
-          flex: 1 1 100%;
-
           appearance: none;
           border: none;
           outline: none;
@@ -357,7 +346,7 @@ body {
           padding: 10px 15px;
           border-radius: 0px 8px 8px 0px;
 
-          background-color: #ea526f;
+          background-color: #4f86f7;
 
           color: #fff;
           font-size: 18px;
