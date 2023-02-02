@@ -286,6 +286,8 @@ body {
 
         &.current-user {
           margin-top: 30px;
+          justify-content: flex-end;
+          text-align: right;
 
           .message-inner {
             max-width: 75%;
